@@ -105,4 +105,4 @@ const getAllIndiaGeojson = async (req,res)=>{
 
 }
 
-module.exports = {getAllIndiaGeojson}
+module.exports = getAllIndiaGeojson

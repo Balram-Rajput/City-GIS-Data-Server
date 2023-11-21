@@ -16,7 +16,7 @@ const errorMiddleware = require("./middleware/error-handler")
 
 const connectDB  = require("./db/connect")
 const GeoDataRouter = require("./routes/indiacounty")
-const zipCoderRouter = require("./routes/indiaPinCode")
+const pinCoderRouter = require("./routes/indiaPinCode")
 
 
 app.use(express.json())
@@ -39,7 +39,7 @@ app.use(xss())
 
 // routes
 app.use("/api/v1/india_county",GeoDataRouter)
-app.use("/api/v1/india_pincode",zipCoderRouter)
+app.use("/api/v1/india_pincode",pinCoderRouter)
 
 app.get("/",(req,res)=>{
     res.send('<h1>GIS API</h1> <a href="/api/v1/india_county">India County and City GIS Data route</a> <br> <a href="/api/v1/india_pincode">India Pincode route</a>')

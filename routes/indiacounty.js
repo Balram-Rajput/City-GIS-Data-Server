@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router()
-const {getAllIndiaGeojson} = require("../controllers/IndiaCounty")
+const  getAllIndiaGeojson = require("../controllers/IndiaCounty")
 
 router.route('/').get(getAllIndiaGeojson)
 
