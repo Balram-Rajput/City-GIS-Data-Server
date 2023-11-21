@@ -64,7 +64,10 @@ const getAllIndiaGeojson = async (req,res)=>{
 
 
     res.status(200).json({geoData:filter_properties,count :geoData.length})
-    
+
+}
+
+
      // if(numericFilters){
     //     const operatorMap={
     //         ">":"$gt",
@@ -103,6 +106,4 @@ const getAllIndiaGeojson = async (req,res)=>{
     // }
 
 
-}
-
-module.exports = getAllIndiaGeojson
+module.exports = {getAllIndiaGeojson}
