@@ -7,7 +7,7 @@ const GeoJsonModel = require("./models/indiacounty")
 // or you can be more specific and use `mongoose.Schema.Types.Object` depending on your data structure
 
 
-const geoData = require("./india-city.json")
+const geoData = require("./demo_pin.json")
 
 const start= async ()=>{
     try{
@@ -26,7 +26,7 @@ const start= async ()=>{
     }
 }
 
-// start()
+start()
 
 
 // const {readFile,writeFile} = require('fs');

@@ -33,8 +33,37 @@ const getAllIndiaGeojson = async (req,res)=>{
     const limit = Number(req.query.limit) || 4000 ;
     const skip = (page -1)*limit;  
     result = result.skip(skip).limit(limit);
+
     const geoData = await result
-    res.status(200).json({geoData,count :geoData.length})
+    var filter_properties = []
+    
+    if(city){
+         let newCity = city.split(",");
+         let jsonData = JSON.parse(JSON.stringify(geoData))
+         for(city1 of newCity){
+            let obj = {
+                "key":city1,
+                "geometry":[]
+            }
+
+            jsonData.forEach(result=>{
+                let dist_name = result["properties"]["dist_name"].toLowerCase()
+                if(dist_name.includes(city1.toLowerCase())){
+                    obj.geometry.push(result)
+                }    
+            })
+            filter_properties.push(obj)
+            // for(geo of geoData){
+            //     console.log(geo)
+            //     if(geo["properties"]["dist_name"].incldues(value)){
+            //         filter_properties[value].push(geo.properties)
+            //     }
+            // } 
+        } 
+    } 
+
+
+    res.status(200).json({geoData:filter_properties,count :geoData.length})
     
      // if(numericFilters){
     //     const operatorMap={

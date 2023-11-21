@@ -15,5 +15,4 @@ const geoJsonSchema = new mongoose.Schema({
 
 
 mongoose.set("strictQuery", true);
-module.exports = mongoose.model('india_district_level_data', geoJsonSchema);
-// module.exports = mongoose.model('india_pincode_data', geoJsonSchema);
+module.exports = mongoose.model('india_pincode_data', geoJsonSchema);
